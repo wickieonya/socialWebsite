@@ -8,7 +8,6 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Image
 from .forms import ImageCreateForm
-from common.decorators import ajax_required
 
 
 @login_required
@@ -78,7 +77,4 @@ def image_list(request):
                 "images/list_ajax.html",
                 {"section": "images", "images": images},
             )
-    return render(
-        request, "images/list.html", {"section": "images", "images": images}
-    )
-
+    return render(request, "images/list.html", {"section": "images", "images": images})
